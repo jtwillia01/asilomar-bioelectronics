@@ -1,0 +1,190 @@
+/* Asilomar Bioelectronics Symposium */
+:root {
+  --sand: #f6f3ec;
+  --paper: #fffdf8;
+  --pine: #16352b;
+  --pine-2: #1e4a3c;
+  --teal: #2b6e6a;
+  --ink: #1d2a24;
+  --muted: #5c6b62;
+  --line: #e3ddd0;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--sand);
+}
+img { max-width: 100%; display: block; }
+a { color: var(--teal); }
+a:hover { color: var(--pine-2); }
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.2; color: var(--pine); }
+h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.35rem; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 3.5rem 0; }
+.section + .section { padding-top: 0; }
+.section-alt { background: var(--paper); border-block: 1px solid var(--line); }
+.section-alt.section + .section, .section-alt.section { padding: 3.5rem 0; }
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(246, 243, 236, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .bar {
+  max-width: 1200px; margin: 0 auto; padding: 0.7rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand img { height: 44px; width: auto; }
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; cursor: pointer; padding: 0.4rem; }
+.nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
+  display: block; width: 24px; height: 2px; background: var(--pine); position: relative; content: "";
+}
+.nav-toggle-label span::before { position: absolute; top: -7px; }
+.nav-toggle-label span::after { position: absolute; top: 7px; }
+.site-nav ul { list-style: none; display: flex; gap: 1.35rem; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: var(--ink); font-size: 0.95rem; font-weight: 500;
+  padding: 0.3rem 0; border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--pine); }
+.site-nav a[aria-current="page"] { color: var(--pine); border-bottom-color: var(--teal); }
+
+@media (max-width: 1080px) {
+  .nav-toggle-label { display: block; }
+  .site-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .nav-toggle:checked ~ .site-nav { display: block; }
+  .site-nav ul { flex-direction: column; gap: 0; padding: 0.5rem 0; }
+  .site-nav li { width: 100%; }
+  .site-nav a { display: block; padding: 0.7rem 1.5rem; border-bottom: none; }
+  .site-nav a[aria-current="page"] { background: var(--sand); }
+}
+
+/* ---------- hero (home) ---------- */
+.hero {
+  position: relative; min-height: 76vh;
+  display: flex; align-items: flex-end;
+  background: linear-gradient(180deg, rgba(10, 25, 20, 0.25), rgba(10, 25, 20, 0.72)),
+    url("../assets/img/hero-cypress.jpg") center / cover no-repeat;
+}
+.hero .container { padding-block: 4rem 3.5rem; color: #fff; }
+.hero .mark { height: 84px; width: auto; margin-bottom: 1.2rem; }
+.hero h1 { color: #fff; max-width: 16ch; }
+.hero .tagline { font-size: 1.15rem; margin-top: 0.8rem; color: #e8e4d8; }
+.hero .cta { margin-top: 1.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.hero .credit {
+  position: absolute; right: 1rem; bottom: 0.6rem;
+  font-size: 0.75rem; color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---------- page hero (interior) ---------- */
+.page-hero { background: var(--pine); color: #fff; padding: 3rem 0 2.6rem; }
+.page-hero h1 { color: #fff; }
+.page-hero .sub { color: #cfd8cf; margin-top: 0.4rem; font-size: 1.05rem; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block; padding: 0.65rem 1.4rem; border-radius: 6px;
+  background: var(--pine); color: #fff; text-decoration: none; font-weight: 600;
+  font-size: 0.98rem; border: 2px solid var(--pine); transition: background 0.15s;
+}
+.btn:hover { background: var(--pine-2); border-color: var(--pine-2); color: #fff; }
+.btn-outline { background: transparent; color: var(--pine); }
+.btn-outline:hover { background: var(--pine); color: #fff; }
+.hero .btn-outline { color: #fff; border-color: #fff; }
+.hero .btn-outline:hover { background: rgba(255, 255, 255, 0.18); border-color: #fff; }
+
+/* ---------- prose ---------- */
+.prose { max-width: 72ch; }
+.prose p + p { margin-top: 1rem; }
+.prose h2, .prose h3 { margin: 2rem 0 0.8rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 1rem 0; }
+.lead { font-size: 1.12rem; }
+
+/* ---------- cards / grids ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.4rem; margin-top: 1.8rem; }
+.card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+  padding: 1.4rem; display: flex; flex-direction: column; gap: 0.4rem;
+}
+.card h3 { font-size: 1.15rem; }
+.card .meta { color: var(--muted); font-size: 0.92rem; }
+.card .btn { margin-top: auto; align-self: flex-start; }
+
+/* speakers */
+.speaker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.6rem 1.4rem; margin-top: 1.8rem; }
+.speaker { text-align: center; }
+.speaker img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px;
+  border: 1px solid var(--line); background: #ddd; margin-bottom: 0.7rem;
+}
+.speaker h3 { font-size: 1.08rem; font-family: var(--sans); font-weight: 600; color: var(--ink); }
+.speaker p { color: var(--muted); font-size: 0.92rem; line-height: 1.45; margin-top: 0.15rem; }
+
+/* organizers */
+.org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.4rem; margin-top: 1.8rem; }
+
+/* sponsors */
+.sponsor-row {
+  display: flex; flex-wrap: wrap; gap: 2.5rem 3rem; align-items: center; justify-content: center;
+  margin-top: 1.8rem;
+}
+.sponsor-row img { max-height: 74px; width: auto; max-width: 220px; object-fit: contain; }
+
+/* ---------- schedule ---------- */
+.schedule { max-width: 780px; }
+.schedule .day { margin-top: 2.4rem; }
+.schedule .day > h2 {
+  font-size: 1.45rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--pine);
+}
+.session-label {
+  margin: 1.4rem 0 0.4rem; font-family: var(--sans); font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal);
+}
+.slot { display: grid; grid-template-columns: 82px 1fr; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--line); }
+.slot .time { font-weight: 600; color: var(--pine); font-variant-numeric: tabular-nums; }
+.slot .what em, .slot .what .talk { color: var(--muted); font-style: italic; }
+
+/* ---------- info / rates ---------- */
+.info-list { display: grid; gap: 0.3rem 1.2rem; grid-template-columns: max-content 1fr; margin: 1rem 0; }
+.info-list dt { font-weight: 600; color: var(--pine); }
+.info-list dd { margin: 0; }
+@media (max-width: 560px) { .info-list { grid-template-columns: 1fr; } .info-list dd { margin-bottom: 0.5rem; } }
+
+.rate-table { border-collapse: collapse; margin: 1rem 0; min-width: min(100%, 480px); }
+.rate-table th, .rate-table td { text-align: left; padding: 0.55rem 1rem 0.55rem 0; border-bottom: 1px solid var(--line); }
+.rate-table th { font-family: var(--sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+/* ---------- gallery ---------- */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.gallery img { border-radius: 10px; width: 100%; height: 240px; object-fit: cover; }
+figure figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+
+.notice {
+  background: var(--paper); border-left: 4px solid var(--teal); border-radius: 6px;
+  padding: 1rem 1.3rem; margin: 1.5rem 0; max-width: 72ch;
+}
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--pine); color: #cfd8cf; margin-top: 4rem; }
+.site-footer .container { padding: 2.8rem 1.25rem; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between; }
+.site-footer img { height: 64px; width: auto; }
+.site-footer a { color: #fff; }
+.site-footer .fine { font-size: 0.85rem; color: #9db3a4; }

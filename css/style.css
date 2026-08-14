@@ -96,7 +96,7 @@ h3 { font-size: 1.3rem; }
   background: linear-gradient(180deg, rgba(10, 25, 20, 0.25), rgba(10, 25, 20, 0.72)),
     url("../assets/img/hero-cypress.jpg") center / cover no-repeat;
 }
-.hero .container { padding-block: 4rem 3.5rem; color: #fff; }
+.hero .container { width: 100%; padding-block: 4rem 3.5rem; color: #fff; }
 .hero h1 { color: #fff; max-width: 16ch; }
 .hero .tagline { font-size: 1.15rem; margin-top: 0.9rem; color: #e8e4d8; }
 .hero .cta { margin-top: 1.8rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
@@ -175,7 +175,6 @@ h3 { font-size: 1.3rem; }
 .sponsor-row img { max-height: 68px; width: auto; max-width: 210px; object-fit: contain; }
 
 /* ---------- schedule ---------- */
-.prose + .schedule { margin-top: 2.5rem; }
 .schedule .day { margin-top: 2.75rem; }
 .schedule .day:first-child { margin-top: 0; }
 .schedule .day > h2 {

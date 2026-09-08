@@ -7,7 +7,7 @@ Static site for [asilomarbioelectronics.com](https://www.asilomarbioelectronics.
 - Each page is one `.html` file in the repo root. Edit the text right in the file and push; GitHub Pages redeploys automatically in about a minute.
 - Shared styles live in `css/style.css`. The header/nav and footer are repeated in each page — if you change the nav, change it in every `*.html` file (search for `site-nav`).
 - Images live in `assets/img/`. Add a new speaker headshot there and reference it as `assets/img/name.jpg`.
-- Yearly updates: `speakers.html`, `schedule.html`, `submission.html` (abstract deadlines + poster instructions), `registration.html` (rates + registration link), and add the finished year to `past.html`.
+- Between symposia the nav is Home / Venue / Past Symposia. For the next symposium, recreate `speakers.html`, `schedule.html`, `submission.html`, and `registration.html` from git history (they were retired when ABS 2026 ended) and add them back to the nav in every page; afterwards, archive them as `past-YYYY.html` / `program-YYYY.html` and add the year to `past.html`.
 
 ## Preview locally
 

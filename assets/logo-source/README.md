@@ -20,11 +20,17 @@ here for print and for anyone who wants the lighter lockup.
 ## Three deliberate departures from the masters — tell the organizers
 
 1. **C's orange is reconstructed** — see defect 1 below.
-2. **C is clipped to its box.** The master's cypress canopy (and a shape at lower left) extend *outside* the
-   solid rectangle, painted opaque white. On a white page that is invisible, so the intended look is a tree
-   contained by the box — but on the site's sand background (`#f6f3ec`) those strays show as faint ghosts. The
-   web copies set the viewBox to the box bounds (`y 50 → 531`), which renders identically to the master on white
-   and cleanly on sand. No path data is altered; nothing visible is removed.
+2. **C is clipped to its box, and the cypress is a true cutout.** Two things here:
+   - The master's canopy (and a shape at lower left) extend *outside* the solid rectangle, painted opaque white.
+     On a white page that is invisible, so the intended look is a tree contained by the box — but on the site's
+     sand background those strays showed as faint ghosts. The web copies set the viewBox to the box bounds
+     (`y 50 → 531`), which renders identically to the master on white and cleanly on sand.
+   - In the master the cypress is *painted white on top of* the box, so it is only ever white. The web copies
+     punch it out instead, via an SVG `<mask>`: the background shows through the tree, whatever it is. Note the
+     mask is referenced from an untransformed `<g>` wrapper — referencing it from the box `<path>` itself makes
+     the browser apply that path's `matrix(1,0,0,-1,0,586)` y-flip to the mask content too, and the tree comes
+     out upside down.
+   No path data is altered in either case.
 3. **The footer wordmark is white, not orange.** Orange type on pine measures 3.47:1 and sinks into the
    background; white is 12.6:1. The box stays brand orange. This is a standard reversal treatment, but it is a
    colourway that does not exist in the supplied artwork.

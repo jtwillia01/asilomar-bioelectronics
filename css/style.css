@@ -68,6 +68,10 @@ h3 { font-size: 1.3rem; }
 .site-nav a:hover { color: var(--pine); }
 .site-nav a[aria-current="page"] { color: var(--pine); border-bottom-color: var(--teal); }
 
+@media (max-width: 480px) {
+  .brand img { height: 44px; }   /* floor: wordmark cap-height gets illegible below this */
+}
+
 @media (max-width: 1080px) {
   .nav-toggle-label { display: block; }
   .site-nav {

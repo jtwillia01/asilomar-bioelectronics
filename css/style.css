@@ -132,12 +132,12 @@ h3 { font-size: 1.3rem; }
 .panel .note { margin-top: 1rem; font-size: 0.92rem; color: var(--muted); }
 
 /* ---------- prose ---------- */
+.prose { max-width: 62ch; }   /* reading measure — body copy never runs the full 1100px container */
 .prose p + p { margin-top: 1rem; }
 .prose h2 { margin: 2.25rem 0 0.9rem; }
 .prose h3 { margin: 1.9rem 0 0.6rem; }
 .prose > :first-child { margin-top: 0; }
 .prose ul, .prose ol { padding-left: 1.4rem; margin: 1rem 0; }
-.lead { font-size: 1.12rem; }
 
 /* ---------- cards / grids ---------- */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }

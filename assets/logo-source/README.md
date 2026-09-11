@@ -8,23 +8,26 @@ someone's Downloads folder.
 
 | File | Where | Made from |
 |---|---|---|
-| `../logo-lockup.svg` | header, every page (48px tall) | `AsilomarLogo-B-orange.ai` |
-| `../logo-lockup-white.svg` | footer, every page (60px tall) | same, recoloured `#cc6600` → `#ffffff` |
-| `../favicon.svg` / `../favicon.png` / `../apple-touch-icon.png` | browser tab, iOS home screen | cypress silhouette from `AsilomarLogo-C-black.ai` on a `#cc6600` square |
+| `../logo-lockup.svg` | header, every page (48px tall, 162px wide) | `AsilomarLogo-C-black.ai`, box + wordmark recoloured `#cc6600` |
+| `../logo-lockup-white.svg` | footer, every page (60px tall, 203px wide) | same, but the wordmark flipped to `#ffffff` for the pine background |
+| `../favicon.svg` / `../favicon.png` / `../apple-touch-icon.png` | browser tab, iOS home screen | cypress silhouette from the same C artwork on a `#cc6600` square |
 
 Brand orange is **`#cc6600`**. The three artwork variants are: **A** hairline frame around the mark *and*
 wordmark, **B** hairline frame around the mark only (widest, airiest), **C** solid filled box with the cypress
-knocked out (boldest). The site uses B wherever the hairline frame can actually render, and C only at favicon
-size where a hairline cannot exist.
+knocked out — the "reverse tone" lockup. **The site uses C throughout**, chosen by Jonathan. A and B are kept
+here for print and for anyone who wants the lighter lockup.
 
-## Two deliberate departures from the masters — tell the organizers
+## Three deliberate departures from the masters — tell the organizers
 
-1. **Frame stroke thickened for screen.** B's frame is `stroke-width="3.367"` in a 506-unit viewBox, which
-   computes to **0.32 CSS px** at the 48px header size — it renders as a pale grey ghost, so the "canopy breaks
-   out of the frame" gesture disappears. The two web copies use `stroke-width="10.5"` (= 1.0px at 48px,
-   1.24px at 60px). Nothing else is altered. To re-derive after a re-export:
-   `sed -i '' 's/stroke-width="3.367"/stroke-width="10.5"/' logo-lockup.svg`
-2. **The favicon's orange is reconstructed** — see defect 1 below.
+1. **C's orange is reconstructed** — see defect 1 below.
+2. **C is clipped to its box.** The master's cypress canopy (and a shape at lower left) extend *outside* the
+   solid rectangle, painted opaque white. On a white page that is invisible, so the intended look is a tree
+   contained by the box — but on the site's sand background (`#f6f3ec`) those strays show as faint ghosts. The
+   web copies set the viewBox to the box bounds (`y 50 → 531`), which renders identically to the master on white
+   and cleanly on sand. No path data is altered; nothing visible is removed.
+3. **The footer wordmark is white, not orange.** Orange type on pine measures 3.47:1 and sinks into the
+   background; white is 12.6:1. The box stays brand orange. This is a standard reversal treatment, but it is a
+   colourway that does not exist in the supplied artwork.
 
 ## Two defects found in the supplied masters
 

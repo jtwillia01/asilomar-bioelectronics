@@ -9,7 +9,7 @@ someone's Downloads folder.
 | File | Where | Made from |
 |---|---|---|
 | `../logo-lockup.svg` | header, every page (48px tall, 162px wide) | `AsilomarLogo-C-black.ai`, box + wordmark recoloured `#cc6600` |
-| `../logo-lockup-white.svg` | footer, every page (60px tall, 203px wide) | same, but the wordmark flipped to `#ffffff` for the pine background |
+| `../logo-lockup-white.svg` | footer, every page (60px tall, 203px wide) | same, rendered entirely in sand `#f6f3ec` — no orange, which looked muddy on the pine footer |
 | `../favicon.svg` / `../favicon.png` / `../apple-touch-icon.png` | browser tab, iOS home screen | cypress silhouette from the same C artwork on a `#cc6600` square |
 
 Brand orange is **`#cc6600`**. The three artwork variants are: **A** hairline frame around the mark *and*
@@ -31,9 +31,10 @@ here for print and for anyone who wants the lighter lockup.
      the browser apply that path's `matrix(1,0,0,-1,0,586)` y-flip to the mask content too, and the tree comes
      out upside down.
    No path data is altered in either case.
-3. **The footer wordmark is white, not orange.** Orange type on pine measures 3.47:1 and sinks into the
-   background; white is 12.6:1. The box stays brand orange. This is a standard reversal treatment, but it is a
-   colourway that does not exist in the supplied artwork.
+3. **The footer lockup is entirely sand, with no orange.** Brand orange on the pine footer measures only
+   3.47:1 and looks muddy against the green; sand `#f6f3ec` is 12.0:1 and matches the page background, so the
+   cutout cypress reads as the page showing through. This is a single-colour reversal — a standard treatment,
+   but a colourway that does not exist in the supplied artwork. The header keeps the brand orange.
 
 ## Two defects found in the supplied masters
 

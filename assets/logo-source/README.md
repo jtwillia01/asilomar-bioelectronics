@@ -25,11 +25,25 @@ here for print and for anyone who wants the lighter lockup.
      On a white page that is invisible, so the intended look is a tree contained by the box — but on the site's
      sand background those strays showed as faint ghosts. The web copies set the viewBox to the box bounds
      (`y 50 → 531`), which renders identically to the master on white and cleanly on sand.
-   - In the master the cypress is *painted white on top of* the box, so it is only ever white. The web copies
-     punch it out instead, via an SVG `<mask>`: the background shows through the tree, whatever it is. Note the
-     mask is referenced from an untransformed `<g>` wrapper — referencing it from the box `<path>` itself makes
-     the browser apply that path's `matrix(1,0,0,-1,0,586)` y-flip to the mask content too, and the tree comes
-     out upside down.
+   - In the master the cypress is *painted white on top of* the box, so it is only ever white. The shipped
+     site copies instead paint it in the colour of the ground it sits on — sand `#f6f3ec` in the header,
+     pine `#16352b` in the footer — so it reads as a cutout with no white showing.
+
+     We first did this with a real SVG `<mask>`, which is a true transparency. That was reverted: iOS Safari
+     rasterises masked SVG content into an offscreen buffer, often at 1x rather than the phone's 2-3x pixel
+     ratio, and the logo came out visibly pixelated on iPhone while looking perfect on desktop. The shipped
+     files now contain no `<mask>`, no `<filter>` and no raster data — just filled paths, which every renderer
+     draws at full device resolution.
+
+     `C-cutout-transparent-master.svg` in this folder keeps the real transparent cutout for use on other
+     backgrounds (slides, posters, photographs). Composited on sand it is pixel-identical to the shipped
+     header file, verified by canvas diff at 900px: zero differing pixels.
+
+     Two ways to get a true transparent cutout without a mask were tried and rejected:
+     `fill-rule="evenodd"` on one merged path cancels where cypress shapes overlap (visible orange notches at
+     branch crossings around 4x); `fill-rule="nonzero"` with reversed winding fills those overlaps instead. A
+     Shapely boolean union works but must flatten the curves and lost ~4% of the thin branch tips, so the
+     exact original curves were kept.
    No path data is altered in either case.
 3. **The footer lockup is entirely sand, with no orange.** Brand orange on the pine footer measures only
    3.47:1 and looks muddy against the green; sand `#f6f3ec` is 12.0:1 and matches the page background, so the
